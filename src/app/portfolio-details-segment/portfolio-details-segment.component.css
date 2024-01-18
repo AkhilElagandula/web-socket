@@ -1,0 +1,132 @@
+.container-grid-1 {
+    display: grid;
+    grid-template-columns: 2.5fr 3.5fr;
+    grid-template-rows: 40px;
+    margin: 10px;
+}
+body{
+    display: block !important;
+}
+.container-grid {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0 10px 0 !important;
+}
+.container-grid-2 {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 40px;
+    margin: 10px;
+}
+
+.container-grid-1,
+.container-grid-2 {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-template-rows: 40px;
+    vertical-align: middle;
+    align-items: center;
+    margin: 10px 0;
+}
+.container-grid-3 {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    margin: 10px 0;
+}
+
+.equity-grid-1,
+.equity-grid-2 {
+    margin: 0px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffe1e1;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    padding: 5px;
+    grid-template-rows: 50px !important;
+    margin-bottom: 30px;
+}
+
+.equity-grid4, .equity-grid2 {
+    text-align: right;
+}
+.equity-grid-mid{
+    text-align: center;
+}
+.text-error {
+    color: red;
+}
+
+.dropdown1,
+.dropdown2 {
+    align-items: center;
+    display: flex;
+}
+
+.dropdown {
+    width: 170px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 8px;
+    background: #fff;
+    text-align: center;
+    border: 0.5px solid grey;
+}
+.suggestions{
+    max-width:30% !important
+}
+span.loss-col{color:#fa4110 !important}
+span.gain-col{color:#20ab30 !important}
+.margin-container {
+    background-color: #f8f8f8 !important;
+    padding: 25px;
+    border-radius: 5px;
+    margin: 20px 10px;
+    border-bottom: none;
+    box-shadow: 0 3px 5px rgb(76 64 64 / 50%);
+    width: 75%;
+    margin: 20px auto;
+}
+.gainer-looser-sec.content-bg {
+    padding: 40px;
+}
+span.Value {
+    display: block;
+}
+span.lowerValue {
+    display: block;
+}
+.equity-grid3 .Value,.equity-grid3 .lowerValue, .equity-grid4 .Value,.equity-grid4 .lowerValue {
+    font-size: 13px;
+    color:#878787;
+}
+.equity-grid-mid .Value,.equity-grid-mid .lowerValue{
+    font-size: 13px;
+    color:#878787;
+}
+.bgGLoose{
+ background: #ef927a;
+ color: #fff !important;
+}
+.bgGLgain{
+    background: #7ad785;
+    color:#fff !important;
+}
+@media screen and (max-width:540px) {
+    .margin-container{
+        padding: 10px !important;
+        width: 100% !important;
+    } 
+    .gainer-looser-sec.content-bg {
+        padding: 25px !important;
+    }
+    .dropdown{
+        width:155px !important;
+        margin-left: 8px;
+    }
+    .dropdown1, .dropdown2{
+        width: 130px !important;
+    }
+}

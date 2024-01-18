@@ -1,0 +1,450 @@
+.gainer-looser-sec.content-bg {
+    padding: 40px;
+  }
+  .content-bg {
+      box-shadow: none !important;
+  }
+  .container-grid {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-template-rows: 50px;
+    margin: 10px;
+  }
+  
+  .container-grid2 {
+      display: grid;
+      grid-template-columns: 1.5fr 2.25fr 2.25fr;
+      grid-template-rows: 35px 10px;
+  }
+  
+  .container-grid3 {
+      display: grid;
+      grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
+      grid-template-rows: 45px 10px;
+  }
+  
+  .container-grid4 {
+      display: grid;
+      grid-template-columns: 3fr 3fr;
+      grid-template-rows: 60px;
+      grid-column-gap: 20px;
+  }
+  
+  .equity-container {
+      padding: 10px;
+      border: 1px solid #ecf1ea;
+      border-radius: 18px;
+      background: #ecf1ea;
+      box-shadow: 0 3px 5px rgb(76 64 64 / 50%);
+  }
+  
+  .derivative-container {
+      padding: 10px;
+      border: 1px solid #ebe3eb;
+      border-radius: 18px;
+      background: #ebe3eb;
+  }
+  
+  .section{
+      margin: 5px 0px;
+  }
+  
+  .grid-value{
+      margin-left: 5px;
+  }
+  
+  .grid-header{
+      display: grid;
+  }
+  
+  .grid-text{
+      color: grey;
+  }
+  
+  .grid-text1{
+      text-align: center;
+  }
+  
+  .gainer-grid , .loser-grid , .today-grid , .gain-loss-grid{
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      border-radius: 12px;
+  }
+    
+  .grid {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+  }
+  
+  .grid-content{
+      display: flex;
+      align-items: center;
+  }
+  
+  .value1 p{
+      font-size: 20px !important;
+      margin-top: -10px;
+  }
+  
+  .value2{
+      font-size: 20px;
+      margin-top: -10px;
+  }
+  
+  .segment-container-grid{
+      display: none;
+  }
+  
+  .grid-header1{
+      display: flex;
+  }
+  
+  .s-grid2{
+      display: flex;
+      justify-content: center;
+  }
+  
+  ul{
+      display: flex;
+  }
+  
+  ul li{
+      list-style: disc;
+      margin: 0px 15px;
+      font-weight: bolder;
+      font-size: 15px;
+  }
+  
+  ul li span{
+      padding: 5px;
+  }
+  .grid1 p {
+      text-align:left;
+    }
+    .grid-header span {
+      display: inline;
+  }
+    @media screen and (max-width:410px) {
+      .grid-header span {
+          font-size: 12px !important;
+          display: inline-grid;
+          justify-content: center;
+      }
+    }
+  @media screen and (max-width:560px) {
+  
+      .gainer-looser-sec.content-bg {
+          padding: 15px;
+      }
+     .grid1 p {
+      text-align:left;
+    }
+    .gainer-grid , .loser-grid , .today-grid , .gain-loss-grid{
+      padding: 5px 0;
+  }
+  .container-grid4 {
+      grid-column-gap: 5px;
+      grid-template-rows: 70px;
+  }
+  .col-md-12{
+      padding:0px !important;
+  }
+    .col-md-6 {
+      width:98% !important;
+    }
+      /* .container-grid2 {
+          display: grid;
+          grid-template-columns: 1.5fr 2.25fr 2.25fr;
+          grid-template-rows: 40px 15px;
+          font-size: 12px;
+      } */
+  
+      .col-md-12{
+          padding: 0px 5px !important;
+      }
+  
+      .segment-container-grid{
+          display: flex;
+      }
+  
+      .segment-container-grid .grid{
+          width: 50%;
+      }
+  
+      .s-grid2{
+         float:right !important
+      }
+  
+      .s-grid1 ,.s-grid2{
+          display:inline-block !important
+      }
+  
+      .container-grid2{
+          display: block;
+      }
+      
+      .container-grid3 {
+          display: grid;
+          grid-template-columns: 2fr 2fr 2fr;
+          grid-template-rows: 70px 15px;
+          font-size: 12px;
+      }
+      span.grid-value {
+          font-size: 13px;
+      }
+      .grid:nth-child(1){
+          display: none !important;
+      }
+      .grid:nth-child(4){
+          justify-content: right;
+      }
+      .grid:nth-child(3){
+          justify-content: center;
+      }
+      .segment-grid{
+          display: none;
+      }
+      .heading1 .value1 p {
+          font-size: 25px;
+      }
+      .value1 p{
+          font-size: 25px;
+          margin-top: -10px;
+      }
+      
+      .value2 p{
+          font-size: 15px;
+          margin-top: -10px;
+      }
+  
+      .section{
+          padding: 0px 5px !important;
+      }
+      
+      .grid-text2{
+          font-size: 12px;
+      }   
+      .grid-text{
+          font-size: 12px;
+      }
+      .grid-header span {
+          font-size: 14px;
+          display: inline-grid;
+          justify-content: center;
+      }
+      .equity-container{
+          margin-top: 15px !important;
+      }
+  }
+  .container-grid {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 5px 0 10px 0 !important;
+      margin:10px 2px;
+  }
+  .container-grid-2 {
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr;
+      grid-template-rows: 40px;
+      margin: 10px;
+  }
+  
+  .container-grid-1,
+  .container-grid-2 {
+      display: grid;
+      grid-template-columns: 3fr 3fr;
+      grid-template-rows: 40px;
+      vertical-align: middle;
+      align-items: center;
+      margin: 10px 0;
+  }
+  .container-grid-3 {
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr;
+      margin: 10px 0;
+  }
+  
+  .equity-grid-1,
+  .equity-grid-2 {
+      margin: 0px 5px;
+      font-size: smaller;
+      background-color: #ffe1e1;
+      border-radius: 10px;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      padding: 5px;    
+  }
+  
+  .equity-grid4, .equity-grid2 {
+      text-align: right;
+  }
+  .equity-grid-mid{
+      text-align: center;
+  }
+  .text-error {
+      color: red;
+  }
+  
+  .dropdown1,
+  .dropdown2 {
+      align-items: center;
+      display: flex;
+  }
+  
+  .dropdown {
+      width: 170px;
+      height: 40px;
+      border-radius: 10px;
+      margin-left: 8px;
+      background: #fff;
+      text-align: center;
+      border: 0.5px solid grey;
+  }
+  
+  .margin-container {
+      background-color: #f8f8f8 !important;
+      padding: 3px 35px;
+      border-radius: 5px;
+      margin: 20px 10px;
+      border-bottom: none;
+      box-shadow: 0 3px 5px rgb(76 64 64 / 50%);
+      width: 75%;
+      margin: 20px auto;
+  }
+  .margin-container p {
+      font-weight: 600;
+  }
+  .bggainer{
+      background-color: #a0e1a0 !important;
+  }
+  .bgloser {
+      background-color: #f1d6d6 !important;
+  }
+  .bgtoday {
+      background-color: #c5c9ff !important;
+  }
+  .gainer-looser-sec.content-bg {
+      padding: 10px 40px;
+      margin:0 5%;
+  }
+  span.Value {
+      display: block;
+  }
+  span.lowerValue {
+      display: block;
+  }
+  .equity-grid3 .Value,.equity-grid3 .lowerValue, .equity-grid4 .Value,.equity-grid4 .lowerValue {
+      font-size: 13px;
+      color:#878787;
+  }
+  .equity-grid-mid .Value,.equity-grid-mid .lowerValue{
+      font-size: 13px;
+      color:#878787;
+  }
+  .gainer-grid.button.active {
+      background: #a0e1a0 !important;
+      box-shadow: 0px 2px 2px #20ab30;
+      border: 1px solid #1c713f !important;
+  }
+  .loser-grid.active {
+      /* background: #edc6c6 !important; */
+      box-shadow: 0px 2px 2px #f84152;
+      border: 1px solid #f96910 !important;
+  }
+  .today-grid.active {
+      background: #c5c9ff !important;
+      box-shadow: 0px 2px 2px #121caf;
+      border: 1px solid #121caf !important;
+  }
+  .loss-col{color:#fa4110 !important}
+  .gain-col{color:#20ab30 !important}
+  .bgmfinfo {
+      background-image: none !important;
+      /* background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent) !important; */
+      background-color: #AD7D1F !important;
+      color:#fff;
+      font-weight: normal;
+  }
+  .bgcuinfo {
+      background-image: none !important;
+      /* background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); */
+      background-color: #DEA332;
+      color:#fff;
+      font-weight: normal;
+  }
+  .bgcoinfo {
+      background-image: none !important;
+      /* background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); */
+      background-color: #B944D0;
+      color:#fff;
+      font-weight: normal;
+  }
+  .bgeqinfo {
+      background-image: none !important;
+      /* background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); */
+      background-color: #2A88F4;
+      color:#fff;
+      font-weight: normal;
+  }
+  .bgdeinfo {
+      background-image: none !important;
+      /* background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); */
+      background-color: #5831E6;
+      color:#fff;
+      font-weight: normal;
+  }
+  .bgeqtext {
+      color:#2A88F4
+  }
+  .bgdetext {
+      color:#5831E6;
+  }
+  .bgcotext {
+      color:#B944D0;
+  }
+  .bgcutext {
+      color:#DEA332;
+  }
+  .bgmftext {
+      color:#AD7D1F;
+  }
+  
+  @media screen and (max-width:540px) {
+      .margin-container{
+          padding: 10px !important;
+          width: 85% !important;
+      } 
+      ul li {
+          margin: 0px 0px !important;
+            font-weight: bolder;
+            font-size: 12px !important;
+            list-style: none !important;
+        }
+        .container-grid-1,
+  .container-grid-2 {
+      grid-template-rows: 50px;
+  }
+  .container-grid{
+      grid-template-rows: 50px;
+      padding:0px !important;
+  }
+  .gainer-looser-sec.content-bg {
+      padding: 5px 15px;
+      margin:0 2%;
+  }
+      .dropdown{
+          width:155px !important;
+          margin-left: 8px;
+      }
+      .heading1 .value1 p {
+          font-size: 20px !important;
+      }
+  }
+  span.heading2 p {
+      justify-content: right;
+      display: grid;
+  }
+  

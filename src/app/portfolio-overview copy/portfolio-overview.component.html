@@ -1,0 +1,331 @@
+<section class="content-block" *ngIf="!overViewAPIData">
+  <div class="banner-area-test">
+    <img style="position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);" src="assets/religare-loader.gif"
+      alt="loading">
+  </div>
+</section>
+<ng-container *ngIf="overviewDataLength > 0">
+  <div class="gainer-looser-sec content-bg">
+    <div class="head-title-wrap block-title">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container-grid" style="border: none;">
+            <div class="grid1">
+              <div>
+                <span class="heading1">
+                  <p>Market Value</p>
+                </span>
+                <span class="value1">
+                  <p style="font-size: 25px;margin-top: -10px;"> ₹{{getTMarketValue() | number:'1.2-2' }}</p>
+                </span>
+              </div>
+            </div>
+            <div class="grid2">
+              <div style="float: right;">
+                <span class="heading2">
+                  <p>Overall Returns</p>
+                </span>
+                <span class="value2">
+                  <p style="margin-top: -10px;"
+                    [ngClass]="{'loss-col': overallReturn < 0, 'gain-col': overallReturn > 0}">
+                    ₹{{ overallReturn | number:'1.2-2'}}
+                    <!-- ({{overallReturnpercentage | number:'1.2-2' }}%) -->
+                    <!-- ({{totalGLP | number:'1.2-2'}}%) -->
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="col-md-12">
+          <!-- <div class="progress" style="height: 1px">
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100"></div>
+          </div> -->
+          <h4>Asset Allocation</h4>
+          <div class="progress" style="height: 20px">
+            <div class="progress-bar progress-bar-striped bgeqinfo" role="progressbar"
+              [style.width.%]="EQPercentage | number:'1.2-2'" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            <div class="progress-bar progress-bar-striped bgdeinfo" role="progressbar"
+              [style.width.%]="DEPercentage | number:'1.2-2'" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            <div class="progress-bar progress-bar-striped bgcoinfo" role="progressbar"
+              [style.width.%]="COPercentage | number:'1.2-2'" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            <div class="progress-bar progress-bar-striped bgcuinfo" role="progressbar"
+              [style.width.%]="CUPercentage | number:'1.2-2'" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            <div class="progress-bar progress-bar-striped bgmfinfo" role="progressbar"
+              [style.width.%]="MFPercentage | number:'1.2-2'" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <ul style="margin-bottom: 10px;">
+              <li *ngIf="EQPercentage"><span class="bgeqtext">Equity:</span> <span class="bgeqinfo">{{EQPercentage |
+                  number:'1.2-2'}}%</span></li>
+              <li *ngIf="DEPercentage"><span class="bgdetext">Derivative:</span> <span class="bgdeinfo">{{DEPercentage |
+                  number:'1.2-2'}}%</span></li>
+              <li *ngIf="COPercentage"><span class="bgcotext">Comodity:</span> <span class="bgcoinfo">{{COPercentage |
+                  number:'1.2-2'}}%</span></li>
+              <li *ngIf="CUPercentage"><span class="bgcutext">Currency:</span><span class="bgcuinfo">{{CUPercentage |
+                  number:'1.2-2'}}%</span></li>
+              <li *ngIf="MFPercentage"><span class="bgdetext">Mutual Fund:</span><span class="bgmfinfo">{{MFPercentage |
+                  number:'1.2-2'}}%</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 section" *ngFor="let item1 of overViewData">
+          <div class="equity-container">
+            <div class="container-grid2">
+              <div class="grid1">
+                <p><b>{{item1.EXFN}}</b></p>
+              </div>
+              <div class="s-grid1">
+                <div class="grid-header1">
+                  <span class="grid-text">Amt Invested</span>
+                  <span class="grid-value"><b> ₹{{item1.AI | number:'1.2-2'}}</b></span>
+                </div>
+              </div>
+              <div class="s-grid2">
+                <div class="grid-header1">
+                  <span class="grid-text">Mkt Value</span>
+                  <span class="grid-value"><b> ₹{{item1.MV | number:'1.2-2'}}</b></span>
+                </div>
+              </div>
+            </div>
+            <div class="container-grid3">
+              <div class="grid">
+              </div>
+              <div class="grid">
+                <div class="grid-header">
+                  <span class="grid-text">Gain/Loss</span>
+                  <span *ngIf="item1.EX =='EQ' || item1.EX =='MF'"
+                    [ngClass]="{'loss-col':item1.GL < 0, 'gain-col':item1.GL > 0 }">{{item1.GL | number:'1.2-2'}}
+                    ({{item1.GLP | number:'1.2-2'}}%)</span>
+                  <span *ngIf="item1.EX=='DE' || item1.EX=='CU' || item1.EX=='CO' "
+                    [ngClass]="{'loss-col':item1.GL < 0, 'gain-col':item1.GL > 0 }">{{item1.GL | number:'1.2-2'}}
+                    ({{item1.GLP | number:'1.2-2'}}%)</span>
+                </div>
+              </div>
+              <div class="grid">
+                <div class="grid-header">
+                  <span class="grid-text">Realised G/L</span>
+                  <span [ngClass]="{'loss-col':item1.RG < 0, 'gain-col':item1.RG > 0 }">{{item1.RG | number:'1.2-2'}}
+                    ({{item1.RGP | number:'1.2-2'}}%)</span>
+                </div>
+              </div>
+              <div class="grid">
+                <div class="grid-header">
+                  <span class="grid-text">Today's G/L</span>
+                  <span [ngClass]="{'loss-col':item1.TGL < 0, 'gain-col':item1.TGL > 0 }">{{item1.TGL | number:'1.2-2'}}
+                    ({{(item1.TGL/item1.MV)*100 | number:'1.2-2'}}%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="overviewDataLength <= 0">
+  <div class="gainer-looser-sec content-bg">
+    <div class="head-title-wrap block-title">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="margin-container">
+            <p style="display: grid; grid-template-columns: 6fr; text-align: center;">{{msg}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<div class="gainer-looser-sec content-bg" *ngIf="overViewAPIData">
+  <div class="head-title-wrap block-title">
+    <div class="row">
+      <div class="col-md-12" style="margin: 20px auto; width:100%; float: none !important;">
+        <div class="container-grid4" style=" grid-template-columns: 2fr 2fr 2fr !important;">
+          <div class="gainer-grid button" [ngClass]="{'active' : activeTab == 'Gainer' }"
+            (click)="getLeapPortfolioEQData();showTab('Gainer')" data-toggle="tab"
+            style="cursor: pointer; border: 1px solid #dcebdc; background: #dcebdc;">
+            <div class="grid-header">
+              <span class="grid-text1">
+                <b>Gainers ({{gainerCount}}) </b>
+              </span>
+              <span class="icon-add"></span>
+              <span [ngClass]="{'loss-col':totalGainerGL < 0, 'gain-col':totalGainerGL > 0 }"><span>{{totalGainerGL |
+                  number:'2.2-2'}}</span><span>({{totalGainerGLPercent | number:'2.2-2'}}%)</span></span>
+              <!-- <span *ngIf="type=='P'> ({{TotalGain*100/TotalInv | number:'1.2-2'}}%)</span>
+                  <span *ngIf="type=='Z'"> ({{TotalGain*100/TotalBuyValue | number:'1.2-2'}}%)</span> -->
+
+              <!-- </span> -->
+              <!-- <span style="color:green">+1567.42 (+15.40%)</span> -->
+            </div>
+          </div>
+          <div class="loser-grid" [ngClass]="{'active' : activeTab == 'Loser' }"
+            (click)="getLeapPortfolioEQData();showTab('Loser')" data-toggle="tab"
+            style="cursor: pointer; border: 1px solid #f1d6d6;background: #f1d6d6;">
+            <div class="grid-header">
+              <span class="grid-text1">
+                <b>Losers ({{loserCount}})</b>
+              </span>
+              <span [ngClass]="{'loss-col':totalLoserGL < 0, 'gain-col':totalLoserGL > 0 }"><span>{{totalLoserGL |
+                  number:'2.2-2'}}</span><span>({{totalLoserGLPercent | number:'2.2-2'}}%)</span></span>
+              <!-- <p class="sunsex-count" *ngIf="object.keys(scriptList).length >0">
+            <span class="price-percentage loss ml0">
+                <span class="icon-add"></span>
+                {{TotalLoss | number:'2.2-2'}}
+                <span *ngIf="type=='P'||type=='N'">({{TotalLoss*100/TotalInv | number:'1.2-2'}}%)</span>
+                <span *ngIf="type=='Z'"> ({{TotalLoss*100/TotalBuyValue | number:'1.2-2'}}%)</span>
+            </span>
+  
+        </p> -->
+            </div>
+          </div>
+          <div class="today-grid" [ngClass]="{'active' : activeTab == 'Today' }"
+            (click)="getLeapPortfolioEQData();showTab('Today')"
+            style="border: 1px solid #ebe3eb;background:#ebe3eb; cursor: pointer;">
+            <div class="grid-header">
+              <span class="grid-text1">
+                <b>Today's G/L ({{totalScriplength}})</b>
+              </span>
+              <span *ngIf="isNumber(todayUnrealisedTGLAbsolutChange)"
+                [ngClass]="{'loss-col':todayUnrealisedTGLAbsolutChange < 0, 'gain-col':todayUnrealisedTGLAbsolutChange > 0 }"><span>{{todayUnrealisedTGLAbsolutChange
+                  | number:'2.2-2'}}</span><span>({{todayUnrealisedTGLPercentageChange |
+                  number:'2.2-2'}}%)</span></span>
+              <span *ngIf="!isNumber(todayUnrealisedTGLAbsolutChange)"
+                class]="gain-col"><span>{{todayUnrealisedTGLAbsolutChange |
+                  number:'2.2-2'}}</span><span>({{todayUnrealisedTGLPercentageChange | number:'2.2-2'}}%)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="segmentData.length > 0">
+  <div class="gainer-looser-sec content-bg">
+    <div class="head-title-wrap block-title"
+      [ngClass]="{'bggainer':activeTab == 'Gainer', 'bgloser': activeTab =='Loser','bgtoday': activeTab =='Today' }">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="margin-container" *ngFor="let item of segmentData; let i = index"
+            (click)="OpenDetails(item['SY'],i)">
+            <ng-container>
+              <div class="container-grid-1">
+                <div class="equity-grid1">
+                  <span class="Value" *ngIf="!item.DE"><strong>{{item.SY}}</strong></span>
+                  <span class="Value" *ngIf="item.DE"><strong>{{item.DE}}</strong></span>
+                  <span>
+                    <span class="lowerValue">QTY: {{item.QTY}}</span>
+                  </span>
+                </div>
+                <div class="equity-grid2">
+                  <span class="Value"><strong>{{item.LTP | number:'1.2-2'}}</strong></span>
+                  <span *ngIf="item.CV" class="lowerValue"
+                    [ngClass]="{'loss-col':item.CV < 0, 'gain-col':item.CV > 0 }">{{item.CV | number:'1.2-2'}}({{item.CP
+                    | number:'1.2-2'}}%)</span>
+                  <span *ngIf="!item.CV" class="lowerValue"
+                    [ngClass]="{'loss-col':item.CV < 0, 'gain-col':item.CV > 0 }">{{0 | number:'1.2-2'}}({{0 |
+                    number:'1.2-2'}}%)</span>
+                </div>
+              </div>
+              <div class="container-grid-2">
+                <div class="equity-grid3">
+                  <span class="Value">AVG BUY PRICE </span>
+                  <span class="lowerValue"> {{item.ABP | number:'1.2-2'}}</span>
+                </div>
+                <div class="equity-grid4" *ngIf="activeTab != 'Today'">
+                  <span class="Value">GAIN/LOSS </span>
+                  <!-- <span class="lowerValue" [ngClass]="{'loss-col':item.UnrealisedGLAbsoluteChange < 0, 'gain-col':item.UnrealisedGLAbsoluteChange > 0 }">{{item.UnrealisedGLAbsoluteChange | number:'1.2-2'}} ({{item.UnrealisedGLPercentageChange | number:'1.2-2'}}%)</span> -->
+                  <span *ngIf="item.QTY > 0" class="lowerValue"
+                    [ngClass]="{'loss-col':((item.QTY*item.LTP) - item.INV) < 0, 'gain-col':((item.QTY*item.LTP) - item.INV) > 0 }">{{((item.QTY*item.LTP)
+                    - item.INV) | number:'1.2-2'}} ({{(((item.QTY*item.LTP) - item.INV)/item.INV)*100 |
+                    number:'1.2-2'}}%)</span>
+                  <span *ngIf="item.QTY < 0" class="lowerValue"
+                    [ngClass]="{'loss-col':((item.QTY*item.LTP) + item.INV) < 0, 'gain-col':((item.QTY*item.LTP) + item.INV) > 0 }">{{((item.QTY*item.LTP)
+                    + item.INV) | number:'1.2-2'}} ({{(((item.QTY*item.LTP) + item.INV)/item.INV)*100 |
+                    number:'1.2-2'}}%)</span>
+                </div>
+                <div class="equity-grid4" *ngIf="activeTab == 'Today'">
+                  <span class="Value">TODAY'S G/L </span>
+                  <span *ngIf="item.CV" class="lowerValue"
+                    [ngClass]="{'loss-col':(item.QTY*item.CV) < 0, 'gain-col':(item.QTY*item.CV) > 0 }">{{(item.QTY*item.CV)
+                    | number:'1.2-2'}} ({{item.CP | number:'1.2-2'}}%)</span>
+                  <!-- <span *ngIf="!item.CV" class="lowerValue gain-col">{{0.0 | number:'1.2-2'}} ({{0.0 |
+                      number:'1.2-2'}}%)</span> -->
+                </div>
+              </div>
+              <div class="container-grid" *ngIf="showPostiton && item['SY']==selectedscript"
+                style="grid-template-columns: 6fr !important;">
+                <div class="container-grid-3">
+                  <div class="equity-grid3">
+                    <span class="Value">INV COST</span>
+                    <span class="lowerValue">{{item.INV | number:'1.2-2'}}</span>
+                  </div>
+                  <div class="equity-grid-mid">
+                    <span class="Value">CMV </span>
+                    <span class="lowerValue">{{item.QTY*item.LTP | number:'1.2-2'}}</span>
+                  </div>
+                  <div class="equity-grid4" *ngIf="activeTab != 'Today'">
+                    <span class="Value">TODAY'S G/L </span>
+                    <span *ngIf="item.CV" class="lowerValue"
+                      [ngClass]="{'loss-col':(item.QTY*item.CV) < 0, 'gain-col':(item.QTY*item.CV) > 0 }">{{(item.QTY*item.CV)
+                      | number:'1.2-2'}} ({{item.CP | number:'1.2-2'}}%)</span>
+                    <span *ngIf="!item.CV" class="lowerValue gain-col">{{0.0 | number:'1.2-2'}} ({{0.0 |
+                      number:'1.2-2'}}%)</span>
+                  </div>
+                  <div class="equity-grid4" *ngIf="activeTab == 'Today'">
+                    <span class="Value">GAIN/LOSS </span>
+                    <span *ngIf="item.QTY > 0" class="lowerValue"
+                      [ngClass]="{'loss-col':((item.QTY*item.LTP) - item.INV)  < 0, 'gain-col':((item.QTY*item.LTP) - item.INV)  > 0 }">{{((item.QTY*item.LTP)
+                      - item.INV) | number:'1.2-2'}} ({{(((item.QTY*item.LTP) -item.INV)/item.INV)*100 |
+                      number:'1.2-2'}}%)</span>
+                    <span *ngIf="item.QTY < 0" class="lowerValue"
+                      [ngClass]="{'loss-col':((item.QTY*item.LTP) + item.INV)  < 0, 'gain-col':((item.QTY*item.LTP) + item.INV)  > 0 }">{{((item.QTY*item.LTP)
+                      + item.INV) | number:'1.2-2'}} ({{(((item.QTY*item.LTP) + item.INV)/item.INV)*100 |
+                      number:'1.2-2'}}%)</span>
+                  </div>
+                </div>
+                <div class="container-grid-3">
+                  <div class="equity-grid3">
+                    <span class="Value">SHORT TERM GAIN </span>
+                    <span class="lowerValue">{{item.ST | number:'1.2-2'}}</span>
+                  </div>
+                  <div class="equity-grid-mid">
+                    <span class="Value">LONG TERM GAIN </span>
+                    <span class="lowerValue">{{item.LT | number:'1.2-2'}}</span>
+                  </div>
+                  <div class="equity-grid4">
+                    <span class="Value">REALIZED G/L </span>
+                    <span class="lowerValue" [ngClass]="{'loss-col':item.RV < 0, 'gain-col':item.RV > 0 }">{{item.RV |
+                      number:'1.2-2'}} ({{item.RP | number:'1.2-2'}}%)</span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf=" segmentData.length <= 0">
+  <div class="gainer-looser-sec content-bg">
+    <div class="head-title-wrap block-title"
+      [ngClass]="{'bggainer':activeTab == 'Gainer', 'bgloser': activeTab =='Loser' }">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="margin-container" style="background: none !important;box-shadow: none !important;">
+            <p style="display: grid; grid-template-columns: 6fr; text-align: center;">{{msg}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

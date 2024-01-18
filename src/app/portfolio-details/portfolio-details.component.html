@@ -1,0 +1,80 @@
+<section class="content-block" *ngIf="!proceedToSegment">
+  <div class="banner-area-test">
+    <img style="position: absolute;left: 50%;width:60%;top: 50%;transform: translate(-50%,-50%);"
+      src="assets/no-investement.png" alt="loading">
+    <p style="text-align:center; font-weight: 900;">NO INVESTMENT CURRENTLY</p>
+  </div>
+</section>
+<section class="content-block gray-bg-content" *ngIf="proceedToSegment">
+  <div class="share-recommend-bx porfolio-eqty-ar content-pd-sm">
+    <div class="container">
+      <div class="portfolio-eqty-area">
+        <div class="top-head-sec">
+          <div class="row">
+            <div class="col-sm-12 share">
+              <div class="share-heading">
+                <ul class="share-head-menu">
+                  <li [ngClass]="{ active: market == 'OVERVIEW' }">
+                    <a (click)="changeMarket('OVERVIEW')">Overview</a>
+                  </li>
+                  <li *ngIf="segementActiveEQ" [ngClass]="{ active: market == 'EQ' }">
+                    <a (click)="changeMarket('EQ')">Equity</a>
+                  </li>
+                  <li *ngIf="segementActiveDE" [ngClass]="{ active: market == 'DE' }">
+                    <a (click)="changeMarket('DE')">Derivative</a>
+                  </li>
+                  <li *ngIf="segementActiveCU" [ngClass]="{ active: market == 'CU' }">
+                    <a (click)="changeMarket('CU')">Currency</a>
+                  </li>
+                  <li *ngIf="segementActiveCO" [ngClass]="{ active: market == 'CO' }">
+                    <a (click)="changeMarket('CO')">Commodity</a>
+                  </li>
+                  <li *ngIf="segementActiveMF" [ngClass]="{ active: market == 'MF' }">
+                    <a (click)="changeMarket('MF')">Mutual Fund</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="funds-table-wrap">
+          <div class="tranding-tab content-bg">
+            <div class="tranding-opt" style="background: #fff;">
+              <div class="container-grid"
+                style="border: none; grid-template-columns:3fr 3fr; display:grid; margin: 10px 0;">
+                <div class="grid1">
+                  <div class="update1" [ngStyle]="{'margin-left': market != 'OVERVIEW' ? '8%' : '17%'}">
+                    <span class="heading2">
+                      <h3 style="font-size: 20px;">{{sectionTitle}}</h3>
+                    </span>
+                  </div>
+                </div>
+                <div class="grid2">
+                  <div class="update">
+                    <span class="heading2">
+                      <p style="color:#958d8d;">Last Updated : {{timeupdated | date : 'mediumDate'}}</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <app-portfolio-overview *ngIf=" isSessionValid && market == 'OVERVIEW'"
+              (totalInvested)="(totalInvested($event))" [market]="market" [dateDropDown]="dateDropDown"
+              [uID]="uID"></app-portfolio-overview>
+            <app-portfolio-details-segment *ngIf="isSessionValid && market == 'EQ'" [totalInv]="totalInv"
+              [market]="market" [dateDropDown]="dateDropDown" [uID]="uID"></app-portfolio-details-segment>
+            <app-portfolio-details-segment *ngIf="isSessionValid && market == 'CU'" [totalInv]="totalInv"
+              [market]="market" [dateDropDown]="dateDropDown" [uID]="uID"></app-portfolio-details-segment>
+            <app-portfolio-details-segment *ngIf="isSessionValid && market == 'CO'" [totalInv]="totalInv"
+              [market]="market" [dateDropDown]="dateDropDown" [uID]="uID"></app-portfolio-details-segment>
+            <app-portfolio-details-segment *ngIf="isSessionValid && market == 'DE'" [totalInv]="totalInv"
+              [market]="market" [dateDropDown]="dateDropDown" [uID]="uID"></app-portfolio-details-segment>
+            <app-portfolio-details-segment *ngIf="isSessionValid && market == 'MF'" [totalInv]="totalInv"
+              [market]="market" [dateDropDown]="dateDropDown" [uID]="uID"></app-portfolio-details-segment>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

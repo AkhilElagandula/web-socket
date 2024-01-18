@@ -1,0 +1,134 @@
+.tranding-opt {
+    padding: 0px !important;
+  }
+  section.content-block.gray-bg-content {
+    margin-top: -25px !important;
+  }
+  
+  .row{
+    margin: 0px !important;
+  }
+  .col-sm-12.share {
+    width: 80%;
+    margin: 0 auto;
+    float: none;
+  }
+  ul.share-head-menu {
+    text-align: center;
+  }
+  ul.share-head-menu li a {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .banner-area-test img {
+    width: 45% !important;
+  }
+  .banner-area-test p {
+    margin-top:35%
+  }
+  @media (min-width: 200px) and (max-width: 640px) {
+    body {
+      display: block !important;
+    }
+    .col-sm-12.share {
+      width:100% !important;
+    }
+    .share-head-menu li a {
+      padding: 10px 5px !important;
+    }
+    .share-head-menu li.active a {
+      font-weight: 700 !important;
+    }
+    ul.share-head-menu li a { 
+      height: 40px;
+    }
+    .banner-area-test p {
+      margin-top:35%
+    }
+    .row{
+      margin: 0px !important;
+    }
+    .gainer-looser-sec.content-bg{
+      box-shadow: none !important;
+    }
+    .share-title {
+      display: grid;
+      grid-template-columns: 2fr 4fr;
+      margin: 10px auto;
+      width:75%;
+  
+  }
+  .dropdown1 {
+    width:50% !important;
+  }
+  .suggestions {
+    max-width: 170px !important;
+  }
+  .container-grid-2 {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-template-rows: 40px;
+    vertical-align: middle;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+    ul.share-head-menu {
+      display: flex;
+    }
+  
+    .share-head-menu {
+      padding-top: 30px !important;
+      line-height: 35px;
+      margin-bottom: 15px;
+    }
+  }
+  .update{
+    display: grid; justify-content: center;
+    margin-left: 200px;
+    margin-top: 10px;
+  }
+  .update1 {
+    margin: -10px 17%;
+  }
+  @media screen and (max-width: 410px) {
+    .col-sm-8.share {
+      padding:0px 1px !important;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    ul.share-head-menu {
+      display: inline-block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+  
+  }
+  .update{
+    margin-left: 0px;
+  }
+  .update1 {
+    margin: -8px 12px !important;
+  }
+  /* .share-head-menu li.active a:before {
+      bottom:10px !important;
+  } */
+  .share-head-menu li:hover, .share-head-menu li{
+      border:none !important;
+  }
+   
+  .banner-area-test img {
+    width: 65% !important;
+  }
+  
+    .row{
+      margin: 0px !important;
+    }
+   
+    .share-head-menu {
+      padding-top: 20px !important;
+      line-height: 35px;
+      margin-bottom: 0px;
+    }
+  }
+  
